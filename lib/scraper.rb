@@ -4,8 +4,7 @@ require 'pry'
 class Scraper
 
   def self.scrape_index_page(index_url)
-    html =  open(index_url)
-    index_page = Nokogiri::HTML(html)
+    index_page = Nokogiri::HTML(open(index_url))
 
     index_page.css("div.student-card").map do |student|
       student_hash = Hash.new.tap do |h|
@@ -17,8 +16,7 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    html = open(profile_url)
-    profile_page = Nokogiri::HTML(html)
+    profile_page = Nokogiri::HTML(open(profile_url))
     
     student_bio_hash = Hash.new.tap do |student|
       
