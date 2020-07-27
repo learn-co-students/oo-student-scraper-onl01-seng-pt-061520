@@ -1,4 +1,3 @@
-require 'nokogiri'
 require "spec_helper"
 
 describe "Student" do 
